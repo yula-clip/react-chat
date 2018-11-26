@@ -6,7 +6,7 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Typography from '@material-ui/core/Typography';
-import Avatar from '@material-ui/core/Avatar';
+import Avatar from './Avatar';
 
 const styles = theme =>({
   appBar: {
@@ -24,7 +24,7 @@ const styles = theme =>({
 const ChatHeader = ({classes}) => (
   <AppBar color = 'primary' className={classes.appBar}>
           <Toolbar>
-            <Avatar className={classes.avatar}>H</Avatar>
+            <Avatar colorFrom = 'someone' className={classes.avatar}>S</Avatar>
             <Typography variant="h6" color="inherit" noWrap>
               DogeCodes React Chat
             </Typography>
