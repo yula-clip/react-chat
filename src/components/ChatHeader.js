@@ -2,11 +2,10 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import MoreIcon from '@material-ui/icons/MoreVert';
-import IconButton from '@material-ui/core/IconButton';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import Typography from '@material-ui/core/Typography';
 import Avatar from './Avatar';
+import UserMenu from './UserMenu'
+import ChatMenu from './ChatMenu';
 
 const styles = theme =>({
   appBar: {
@@ -21,28 +20,43 @@ const styles = theme =>({
   },
 });
 
-const ChatHeader = ({classes}) => (
-  <AppBar color = 'primary' className={classes.appBar}>
+class ChatHeader extends React.Component {
+  render() {
+    const { classes, activeUser, activeChat, logout, leaveChat, deleteChat, editUser } = this.props;
+    return (
+        <AppBar color = 'primary' className={classes.appBar}>
           <Toolbar>
-            <Avatar colorFrom = 'someone' className={classes.avatar}>S</Avatar>
+          {activeChat ? (
+            <React.Fragment>
+              <Avatar colorFrom={activeChat._id} className={classes.avatar}>
+                {activeChat.title}
+              </Avatar>
+            <Typography variant="h6" color="inherit" noWrap>
+            {activeChat.title}
+            <ChatMenu
+                  activeUser={activeUser}
+                  onLeaveClick={() => leaveChat(activeChat._id)}
+                  onDeleteClick={() => deleteChat(activeChat._id)}
+            />
+            </Typography>
+            </React.Fragment>
+          ) : (
             <Typography variant="h6" color="inherit" noWrap>
               DogeCodes React Chat
             </Typography>
-            <IconButton 
-             color="inherit">
-              <MoreIcon />
-            </IconButton>
+          )}
             <div className={classes.grow} />
             <div>
-                <IconButton
-                  aria-haspopup="true"
-                  color="inherit"
-                >
-                  <AccountCircle />
-                </IconButton>
+            <UserMenu
+              activeUser={activeUser}
+              onLogoutClick={logout}
+              onEditProfileClick={editUser}
+            />
             </div>
           </Toolbar>
         </AppBar>
-);
+    );
+  }
+}
 
 export default withStyles(styles)(ChatHeader);

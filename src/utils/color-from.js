@@ -21,20 +21,19 @@ const colors = [
   amber, orange, deepOrange, deepPurple, blueGray, lightBlue, cyan, lime, yellow
 ]
 
-export default  function colorFrom(string) {
+export default function colorFrom(string) {
   try {
     const index = string
-    .toString()
-    .split()
-    .map(char => char.charCodeAt())
-    .reduce((sum, num) => sum + num, 0);
+      .toString()
+      .split('')
+      .map(char => char.charCodeAt())
+      .reduce((sum, num) => sum + num, 0);
 
     const colorIndex = index % colors.length;
 
-    return colors[colorIndex][500]
-  } catch(e){
+    return colors[colorIndex][500];
+  } catch (e) {
     console.error(e);
     return blueGray[500];
   }
-
 }
