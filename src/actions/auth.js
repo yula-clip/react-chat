@@ -1,97 +1,102 @@
-import { 
-  SIGNUP_REQUEST, SIGNUP_FAILURE, SIGNUP_SUCCESS,
-  LOGIN_REQUEST, LOGIN_FAILURE, LOGIN_SUCCESS,
-  LOGOUT_REQUEST, LOGOUT_FAILURE, LOGOUT_SUCCESS,
-} from '../constants'
+import * as types from '../constants/auth';
+import callApi from '../utils/call-api';
 
 export function signup(username, password) {
-  return(dispatch) => {
+  return (dispatch) => {
     dispatch({
-      type: SIGNUP_REQUEST,
+      type: types.SIGNUP_REQUEST,
     });
 
-     return fetch('http://localhost:8000/v1/signup', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username,
-          password,
-        })
-      })
-      .then(response =>  response.json())
+    return callApi('/signup', undefined, { method: 'POST' }, {
+      username,
+      password,
+    })
       .then(json => {
-        if(json.success){
-          return json;
+        if (!json.token) {
+          throw new Error('Token has not been provided!');
         }
-        throw new Error(json.massage);
-      })
-      .then( json => {
-        if(!json.token){
-          throw new Error('Token has not been provded!');
-        }
-         
+
         localStorage.setItem('token', json.token);
 
         dispatch({
-          type: SIGNUP_SUCCESS,
+          type: types.SIGNUP_SUCCESS,
           payload: json,
-          })
+        })
       })
       .catch(reason => dispatch({
-        type: SIGNUP_FAILURE,
+        type: types.SIGNUP_FAILURE,
         payload: reason,
       }));
   };
 }
 
 export function login(username, password) {
-  return(dispatch) => {
+  return (dispatch) => {
     dispatch({
-      type: LOGIN_REQUEST,
+      type: types.LOGIN_REQUEST,
     });
-    return fetch('http://localhost:8000/v1/login', {
-      method: 'POST',
-      headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        username,
-        password,
-      })
+
+    return callApi('/login', undefined, { method: 'POST' }, {
+      username,
+      password,
     })
-    .then(response =>  response.json())
-    .then(json => {
-      if(json.success){
-        return json;
-      }
-      throw new Error(json.massage);
-    })
-    .then(json => {
-      if(!json.token){
-        throw new Error('Token has not been provded!');
-      }
-       
-      localStorage.setItem('token', json.token);
-      dispatch({
-        type: LOGIN_SUCCESS,
-        payload: json,
+      .then(json => {
+        if (!json.token) {
+          throw new Error('Token has not been provided!');
+        }
+
+        localStorage.setItem('token', json.token);
+
+        dispatch({
+          type: types.LOGIN_SUCCESS,
+          payload: json,
+        })
       })
-  })
-    .catch(reason => dispatch({
-      type: LOGIN_FAILURE,
-      payload: reason,
-    }));
-  }; 
+      .catch(reason => dispatch({
+        type: types.LOGIN_FAILURE,
+        payload: reason,
+      }));
+  };
 }
 
 export function logout() {
-  return(dispatch) => {
+  return (dispatch, getState) => {
     dispatch({
-      type: LOGOUT_REQUEST,
+      type: types.LOGOUT_REQUEST
     });
-  };  
+
+    return callApi('/logout')
+      .then(json => {
+        localStorage.removeItem('token');
+
+        dispatch({
+          type: types.LOGOUT_SUCCESS,
+          payload: json
+        })
+      })
+      .catch(reason => dispatch({
+        type: types.LOGOUT_FAILURE,
+        payload: reason,
+      }));
+  };
+}
+
+export function recieveAuth() {
+  return (dispatch, getState) => {
+    const { token } = getState().auth;
+
+    dispatch({
+      type: types.RECIEVE_AUTH_REQUEST,
+    })
+
+    return callApi('/users/me', token)
+      .then(json => dispatch({
+        type: types.RECIEVE_AUTH_SUCCESS,
+        payload: json,
+      }))
+      .catch(reason => dispatch({
+        type: types.RECIEVE_AUTH_FAILURE,
+        payload: reason,
+      }));
+  }
 }
