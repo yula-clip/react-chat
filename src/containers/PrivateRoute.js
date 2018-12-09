@@ -3,8 +3,15 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 import { recieveAuth } from '../actions';
+import PropTypes from 'prop-types';
  
 class PrivateRoute extends React.Component {
+  static propTypes = {
+    component: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool.isRequired,
+    recieveAuth: PropTypes.func.isRequired,
+  };
+  
   componentDidMount(){
     this.props.recieveAuth();
   }
@@ -17,7 +24,8 @@ class PrivateRoute extends React.Component {
           <Component { ...props } />
         ) : (
           <Redirect to={{
-              state: { from: props.location }
+            pathname: '/welcome',
+            state: { from: props.location }
           }} />
         )
       )} />
