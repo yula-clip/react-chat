@@ -1,85 +1,85 @@
-import React from 'react';
-import withStyles from '@material-ui/core/styles/withStyles';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+import React from "react";
+import withStyles from "@material-ui/core/styles/withStyles";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 
 const styles = theme => ({
   signUpButton: {
-    marginTop: theme.spacing.unit * 2,
-  },
+    marginTop: theme.spacing.unit * 2
+  }
 });
 
 class LoginForm extends React.Component {
   state = {
     username: {
-      value: '',
-      isValid: true,
+      value: "",
+      isValid: true
     },
     password: {
-      value: '',
-      isValid: true,      
-    },
-  }
+      value: "",
+      isValid: true
+    }
+  };
 
-  handleInputChange = (event) => {
+  handleInputChange = event => {
     event.persist();
-    const { name, value } = event.target
-    this.setState((prevState) => ({
+    const { name, value } = event.target;
+    this.setState(prevState => ({
       [name]: {
         ...prevState[name],
-        value: value,
-      },
+        value: value
+      }
     }));
-  }
+  };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
 
     const { username, password } = this.state;
 
     this.props.onSubmit(username.value, password.value);
-  }
+  };
 
-  render(){
+  render() {
     const { classes } = this.props;
-    const { username, password } = this.state; 
+    const { username, password } = this.state;
 
     return (
-      <form onSubmit = {this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <TextField
           required
           fullWidth
-          label = "Username"
-          placeholder = "Type your username"
-          type = "text"
-          name = "username"
-          margin = "normal"
-          autoComplete = "username"
-          value = {username.value}
-          onChange = {this.handleInputChange}
-          error = {!username.isValid}
+          label="Username"
+          placeholder="Type your username"
+          type="text"
+          name="username"
+          margin="normal"
+          autoComplete="username"
+          value={username.value}
+          onChange={this.handleInputChange}
+          error={!username.isValid}
         />
         <TextField
           required
           fullWidth
-          label = "Password"
-          placeholder = "Type your password"
-          type = "password"
-          name = "password"
-          margin = "normal"
-          autoComplete = "current-password"
-          value = {password.value}
-          onChange = {this.handleInputChange}
-          error = {!password.isValid}
+          label="Password"
+          placeholder="Type your password"
+          type="password"
+          name="password"
+          margin="normal"
+          autoComplete="current-password"
+          value={password.value}
+          onChange={this.handleInputChange}
+          error={!password.isValid}
         />
         <Button
-        fullWidth
-        variant = "contained"
-        type = "submit"
-        color = "primary"
-        className = {classes.signUpButton}
+          fullWidth
+          variant="contained"
+          type="submit"
+          color="primary"
+          className={classes.signUpButton}
         >
-        Login
+          Login
         </Button>
       </form>
     );

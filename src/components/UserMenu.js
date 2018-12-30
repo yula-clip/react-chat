@@ -1,24 +1,24 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import Modal from '@material-ui/core/Modal';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import IconButton from "@material-ui/core/IconButton";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import AccountCircle from "@material-ui/icons/AccountCircle";
+import Modal from "@material-ui/core/Modal";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 
 const styles = theme => ({
   modalWrapper: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   },
   modal: {
-    width: '30%',
-    minWidth: '300px',
+    width: "30%",
+    minWidth: "300px",
     padding: theme.spacing.unit * 3
   }
 });
@@ -27,20 +27,20 @@ class UserMenu extends React.Component {
   state = {
     isModalOpen: false,
     anchorEl: null,
-    username: '',
-    firstName: '',
-    lastName: '',
-  }
+    username: "",
+    firstName: "",
+    lastName: ""
+  };
 
   componentWillReceiveProps(nextProps) {
     this.setState({
       username: nextProps.activeUser.username,
       firstName: nextProps.activeUser.firstName,
-      lastName: nextProps.activeUser.lastName,
-    })
+      lastName: nextProps.activeUser.lastName
+    });
   }
 
-  handleClick = (event) => {
+  handleClick = event => {
     this.setState({ anchorEl: event.currentTarget });
   };
 
@@ -48,30 +48,30 @@ class UserMenu extends React.Component {
     this.setState({ anchorEl: null });
   };
 
-  handleInputChange = (event) => {
+  handleInputChange = event => {
     this.setState({
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value
     });
-  }
+  };
 
   toggleEditProfileModal = () => {
-    this.setState({ isModalOpen: !this.state.isModalOpen })
+    this.setState({ isModalOpen: !this.state.isModalOpen });
     this.handleClose();
-  }
+  };
 
   handleSaveClick = () => {
     this.props.onEditProfileClick({
       username: this.state.username,
       firstName: this.state.firstName,
-      lastName: this.state.lastName,
+      lastName: this.state.lastName
     });
     this.toggleEditProfileModal();
-  }
+  };
 
   handleLogoutClick = () => {
     this.props.onLogoutClick();
     this.handleClose();
-  }
+  };
 
   render() {
     const { anchorEl, isModalOpen } = this.state;
@@ -81,7 +81,7 @@ class UserMenu extends React.Component {
       <React.Fragment>
         <IconButton
           color="inherit"
-          aria-owns={anchorEl ? 'simple-menu' : null}
+          aria-owns={anchorEl ? "simple-menu" : null}
           aria-haspopup="true"
           disabled={disabled}
           onClick={this.handleClick}
@@ -94,8 +94,10 @@ class UserMenu extends React.Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
-         <MenuItem onClick={this.toggleEditProfileModal}>Edit Profile</MenuItem>
-         <MenuItem onClick={this.handleLogoutClick}>Logout</MenuItem>
+          <MenuItem onClick={this.toggleEditProfileModal}>
+            Edit Profile
+          </MenuItem>
+          <MenuItem onClick={this.handleLogoutClick}>Logout</MenuItem>
         </Menu>
         <Modal
           open={isModalOpen}
@@ -140,9 +142,7 @@ class UserMenu extends React.Component {
             <Button color="primary" onClick={this.handleSaveClick}>
               Save
             </Button>
-            <Button onClick={this.toggleEditProfileModal}>
-              Close
-            </Button>
+            <Button onClick={this.toggleEditProfileModal}>Close</Button>
           </Paper>
         </Modal>
       </React.Fragment>

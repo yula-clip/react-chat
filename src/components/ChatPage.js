@@ -1,19 +1,18 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Sidebar from './Sidebar';
-import ChatHeader from './ChatHeader';
-import Chat from './Chat';
-import ErrorMessage from './ErrorMessage';
-
+import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import Sidebar from "./Sidebar";
+import ChatHeader from "./ChatHeader";
+import Chat from "./Chat";
+import ErrorMessage from "./ErrorMessage";
 
 const styles = theme => ({
   root: {
-    display: 'flex',
-    position: 'relative',
-    width: '100%',
-    height: '100%',
-    backgroundColor: theme.palette.background.default,
-  },
+    display: "flex",
+    position: "relative",
+    width: "100%",
+    height: "100%",
+    backgroundColor: theme.palette.background.default
+  }
 });
 
 class ChatPage extends React.Component {
@@ -27,17 +26,12 @@ class ChatPage extends React.Component {
       mountChat
     } = this.props;
 
-    Promise.all([
-        fetchAllChats(),
-        fetchMyChats()
-      ])
+    Promise.all([fetchAllChats(), fetchMyChats()])
       .then(() => {
         socketsConnect();
       })
       .then(() => {
-        const {
-          chatId
-        } = match.params;
+        const { chatId } = match.params;
         if (chatId) {
           setActiveChat(chatId);
           mountChat(chatId);
@@ -47,16 +41,12 @@ class ChatPage extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const {
-      match: {
-        params
-      },
+      match: { params },
       setActiveChat,
       unmountChat,
       mountChat
     } = this.props;
-    const {
-      params: nextParams
-    } = nextProps.match;
+    const { params: nextParams } = nextProps.match;
 
     if (nextParams.chatId && params.chatId !== nextParams.chatId) {
       setActiveChat(nextParams.chatId);
@@ -81,34 +71,34 @@ class ChatPage extends React.Component {
       error,
       isConnected
     } = this.props;
-    return ( 
-      <div className = { classes.root }>
-        <ChatHeader 
-          isConnected = { isConnected }
-          activeUser = { activeUser }
-          activeChat = { chats.active }
-          leaveChat = { leaveChat }
-          deleteChat = { deleteChat }
-          logout = { logout }
-          editUser = { editUser }
-        /> 
-        <Sidebar 
-          isConnected = { isConnected }
-          chats = { chats }
-          createChat = { createChat }
-          /> 
-        <Chat 
-          isConnected = { isConnected }
-          messages = { messages }
-          activeChat = { chats.active }
-          activeUser = { activeUser }
-          sendMessage = { sendMessage }
-          joinChat = { joinChat }
-        /> 
-        <ErrorMessage error = { error } />
+    return (
+      <div className={classes.root}>
+        <ChatHeader
+          isConnected={isConnected}
+          activeUser={activeUser}
+          activeChat={chats.active}
+          leaveChat={leaveChat}
+          deleteChat={deleteChat}
+          logout={logout}
+          editUser={editUser}
+        />
+        <Sidebar
+          isConnected={isConnected}
+          chats={chats}
+          createChat={createChat}
+        />
+        <Chat
+          isConnected={isConnected}
+          messages={messages}
+          activeChat={chats.active}
+          activeUser={activeUser}
+          sendMessage={sendMessage}
+          joinChat={joinChat}
+        />
+        <ErrorMessage error={error} />
       </div>
     );
   }
-};
+}
 
 export default withStyles(styles)(ChatPage);

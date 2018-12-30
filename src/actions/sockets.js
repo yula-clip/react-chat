@@ -1,11 +1,11 @@
-import SocketIOClient from 'socket.io-client';
-import * as types from '../constants/sockets';
-import { redirect } from './services';
+import SocketIOClient from "socket.io-client";
+import * as types from "../constants/sockets";
+import { redirect } from "./services";
 
 export function missingSocketConnection() {
   return {
     type: types.SOCKETS_CONNECTION_MISSING,
-    payload: new Error('Missing connection!'),
+    payload: new Error("Missing connection!")
   };
 }
 
@@ -22,57 +22,57 @@ export function socketsConnect() {
     }
 
     dispatch({
-      type: types.SOCKETS_CONNECTION_REQUEST,
+      type: types.SOCKETS_CONNECTION_REQUEST
     });
 
-    socket = SocketIOClient('ws://localhost:8000/', {
-      query: { token },
+    socket = SocketIOClient("ws://localhost:8000/", {
+      query: { token }
     });
 
-    socket.on('connect', () => {
+    socket.on("connect", () => {
       dispatch({
-        type: types.SOCKETS_CONNECTION_SUCCESS,
+        type: types.SOCKETS_CONNECTION_SUCCESS
       });
     });
 
-    socket.on('error', (error) => {
-      dispatch({
-        type: types.SOCKETS_CONNECTION_FAILURE,
-        payload: new Error(`Connection: ${error}`),
-      });
-    });
-
-    socket.on('connect_error', () => {
+    socket.on("error", error => {
       dispatch({
         type: types.SOCKETS_CONNECTION_FAILURE,
-        payload: new Error('We have lost a connection :('),
+        payload: new Error(`Connection: ${error}`)
       });
     });
 
-    socket.on('new-message', (message) => {
+    socket.on("connect_error", () => {
+      dispatch({
+        type: types.SOCKETS_CONNECTION_FAILURE,
+        payload: new Error("We have lost a connection :(")
+      });
+    });
+
+    socket.on("new-message", message => {
       dispatch({
         type: types.RECIEVE_MESSAGE,
-        payload: message,
+        payload: message
       });
     });
 
-    socket.on('new-chat', ({ chat }) => {
+    socket.on("new-chat", ({ chat }) => {
       dispatch({
         type: types.RECIEVE_NEW_CHAT,
-        payload: { chat },
+        payload: { chat }
       });
     });
 
-    socket.on('deleted-chat', ({ chat }) => {
+    socket.on("deleted-chat", ({ chat }) => {
       const { activeId } = getState().chats;
 
       dispatch({
         type: types.RECIEVE_DELETED_CHAT,
-        payload: { chat },
+        payload: { chat }
       });
 
       if (activeId === chat._id) {
-        dispatch(redirect('/chat'));
+        dispatch(redirect("/chat"));
       }
     });
 
@@ -89,49 +89,49 @@ export function sendMessage(content) {
     }
 
     socket.emit(
-      'send-message',
+      "send-message",
       {
         chatId: activeId,
-        content,
+        content
       },
       () => {
         dispatch({
           type: types.SEND_MESSAGE,
           payload: {
             chatId: activeId,
-            content,
-          },
+            content
+          }
         });
-      },
+      }
     );
   };
 }
 
 export function mountChat(chatId) {
-  return (dispatch) => {
+  return dispatch => {
     if (!socket) {
       dispatch(missingSocketConnection());
     }
 
-    socket.emit('mount-chat', chatId);
+    socket.emit("mount-chat", chatId);
 
     dispatch({
       type: types.MOUNT_CHAT,
-      payload: { chatId },
+      payload: { chatId }
     });
   };
 }
 export function unmountChat(chatId) {
-  return (dispatch) => {
+  return dispatch => {
     if (!socket) {
       dispatch(missingSocketConnection());
     }
 
-    socket.emit('unmount-chat', chatId);
+    socket.emit("unmount-chat", chatId);
 
     dispatch({
       type: types.UNMOUNT_CHAT,
-      payload: { chatId },
+      payload: { chatId }
     });
   };
 }

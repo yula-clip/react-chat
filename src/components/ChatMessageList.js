@@ -1,20 +1,20 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
-import { withStyles } from '@material-ui/core/styles';
-import ChatMessage from './ChatMessage';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
+import React from "react";
+import { withRouter } from "react-router-dom";
+import { withStyles } from "@material-ui/core/styles";
+import ChatMessage from "./ChatMessage";
+import Typography from "@material-ui/core/Typography";
+import Paper from "@material-ui/core/Paper";
 
 const styles = theme => ({
   messagesWrapper: {
-    overflowX: 'scroll',
-    height: '100%',
-    width: '100%',
+    overflowX: "scroll",
+    height: "100%",
+    width: "100%",
     paddingTop: theme.spacing.unit * 3,
-    paddingBottom: '120px',
+    paddingBottom: "120px"
   },
   paper: {
-    padding: theme.spacing.unit * 3,
+    padding: theme.spacing.unit * 3
   }
 });
 
@@ -58,12 +58,9 @@ class ChatMessageList extends React.Component {
         ))}
       </div>
     ) : (
-        <Typography variant="h4">
-          There is no messages yet...
-        </Typography>
-        );
+      <Typography variant="h4">There is no messages yet...</Typography>
+    );
   }
 }
 
 export default withRouter(withStyles(styles)(ChatMessageList));
-
