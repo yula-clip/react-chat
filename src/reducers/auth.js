@@ -24,9 +24,9 @@ export default function auth(state = initialState, action) {
         isAuthenticated: true,
         user: action.payload.user,
       }
+    case types.RECIEVE_AUTH_FAILURE:
     case types.SIGNUP_FAILURE:
     case types.LOGIN_FAILURE:
-    case types.RECIEVE_AUTH_FAILURE:
     case types.LOGOUT_SUCCESS:
       return {
         ...state,

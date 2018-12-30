@@ -103,7 +103,7 @@ class UserMenu extends React.Component {
           onClose={this.toggleEditProfileModal}
         >
           <Paper className={classes.modal}>
-            <Typography variant="title" id="modal-title">
+            <Typography variant="h6" id="modal-title">
               Edit profile
             </Typography>
             <TextField

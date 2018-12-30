@@ -69,26 +69,26 @@ class AddChatButton extends React.Component {
   }
   
   render() {
-    const { classes } = this.props;
+    const { classes, disabled} = this.props;
     const { open, title } = this.state;
     return (
       <React.Fragment>
       <Button 
-      variant="fab"
-      color="primary"
-      onClick={this.toggleModal}
-      aria-label="Add" 
-      className={classes.newChatButton}
-        >
+        disabled={disabled}
+        variant="fab"
+        color="primary"
+        onClick={this.toggleModal}
+        aria-label="Add" 
+        className={classes.newChatButton} >
         <AddIcon />
       </Button>
       <Modal
-      open={open}
-      className={classes.modalWrapper}
-      onClose={this.toggleModal}
+        open={open}
+        className={classes.modalWrapper}
+        onClose={this.toggleModal}
       >
       <Paper className={classes.modal}>
-        <Typography variant="title" id="modal-title">
+        <Typography variant="h6" id="modal-title">
           Create new chat
         </Typography>
         <TextField
