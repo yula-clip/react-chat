@@ -14,19 +14,20 @@ const styles = theme => ({
   }
 });
 
-const ChatList = ({ classes, chats, activeChat }) => (
+const ChatList = ({ classes, chats, activeChat, disabled }) => (
   <List className={classes.chatsList}>
   {chats && chats.length ? (
     chats.map((chat) => (
       <ChatListItem
+        disabled = {disabled}
         key={chat._id}
-        active={activeChat && activeChat._id === chat._id}
+        active={Boolean(activeChat && activeChat._id === chat._id)}
         chatId={chat._id}
         {...chat}
       />
     ))
   ) : (
-    <Typography variant="subheading" className={classes.noChats}>
+    <Typography variant="subtitle1" className={classes.noChats}>
       There is no chats yet...
     </Typography>
   )}

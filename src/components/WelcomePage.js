@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -10,6 +11,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import LoginForm from './LoginForm';
 import SignupForm from './SignUpForm';
+import ErrorMessage from './ErrorMessage';
 
 const styles = theme => ({
   paper: {
@@ -22,8 +24,25 @@ const styles = theme => ({
 })
 
 class WelcomePage extends React.Component {
+  static propTypes = {
+    classes: PropTypes.objectOf(PropTypes.string).isRequired,
+    signup: PropTypes.func.isRequired,
+    login: PropTypes.func.isRequired,
+    recieveAuth: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool.isRequired,
+    error: PropTypes.instanceOf(Error),
+  };
+
+  static defaultProps = {
+    error: null,
+  };
+
   state = {
     activeTab: 0,
+  }
+  
+  componentDidMount() {
+    this.props.recieveAuth();
   }
 
   handleTabChage = (event, value) => {
@@ -31,7 +50,7 @@ class WelcomePage extends React.Component {
   }
 
   render() {
-    const { classes, signup, login, isAuthenticated } = this.props;
+    const { classes, signup, login, isAuthenticated, error } = this.props;
     const { activeTab } = this.state;
 
     if(isAuthenticated){
@@ -43,7 +62,7 @@ class WelcomePage extends React.Component {
       <React.Fragment>
         <AppBar>
           <Toolbar>
-            <Typography variant="title" color="inherit" style={{ flex: 1 }}>
+            <Typography variant="h6" color="inherit" style={{ flex: 1 }}>
               DogeCodes React Chat
             </Typography>
           </Toolbar>
@@ -68,6 +87,7 @@ class WelcomePage extends React.Component {
             </Paper>
           </Grid>
         </Grid>
+        <ErrorMessage error = {error} />
       </React.Fragment>
     );
   }

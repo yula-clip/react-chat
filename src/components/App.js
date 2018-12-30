@@ -12,6 +12,9 @@ import teal from '@material-ui/core/colors/teal';
 const store = configureStore();
 
 const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+  },
   palette: {
     primary: teal,
     secondary: teal,

@@ -22,7 +22,7 @@ const styles = theme =>({
 
 class ChatHeader extends React.Component {
   render() {
-    const { classes, activeUser, activeChat, logout, leaveChat, deleteChat, editUser } = this.props;
+    const { classes, activeUser, activeChat, logout, leaveChat, deleteChat, editUser, isConnected } = this.props;
     return (
         <AppBar color = 'primary' className={classes.appBar}>
           <Toolbar>
@@ -34,9 +34,10 @@ class ChatHeader extends React.Component {
             <Typography variant="h6" color="inherit" noWrap>
             {activeChat.title}
             <ChatMenu
-                  activeUser={activeUser}
-                  onLeaveClick={() => leaveChat(activeChat._id)}
-                  onDeleteClick={() => deleteChat(activeChat._id)}
+              disabled = {!isConnected}
+              activeUser={activeUser}
+              onLeaveClick={() => leaveChat(activeChat._id)}
+              onDeleteClick={() => deleteChat(activeChat._id)}
             />
             </Typography>
             </React.Fragment>
@@ -48,6 +49,7 @@ class ChatHeader extends React.Component {
             <div className={classes.grow} />
             <div>
             <UserMenu
+              disabled = {!isConnected}
               activeUser={activeUser}
               onLogoutClick={logout}
               onEditProfileClick={editUser}
