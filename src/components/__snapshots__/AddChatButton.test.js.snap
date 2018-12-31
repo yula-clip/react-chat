@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddChatButton /> renders button 1`] = `
+<button
+  aria-label="Add"
+  className="MuiButtonBase-root-78 MuiButton-root-52 MuiButton-fab-69 MuiButton-contained-63 MuiButton-containedPrimary-64 MuiButton-raised-66 MuiButton-raisedPrimary-67 AddChatButton-newChatButton-50"
+  disabled={false}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onContextMenu={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  tabIndex="0"
+  type="button"
+>
+  <span
+    className="MuiButton-label-53"
+  >
+    <svg
+      aria-hidden="true"
+      className="MuiSvgIcon-root-81"
+      focusable="false"
+      role="presentation"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+      />
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+    </svg>
+  </span>
+  <span
+    className="MuiTouchRipple-root-92"
+  />
+</button>
+`;
+
+exports[`<AddChatButton /> renders disabled button 1`] = `
+<button
+  aria-label="Add"
+  className="MuiButtonBase-root-78 MuiButtonBase-disabled-79 MuiButton-root-52 MuiButton-fab-69 MuiButton-contained-63 MuiButton-containedPrimary-64 MuiButton-raised-66 MuiButton-raisedPrimary-67 MuiButton-disabled-72 AddChatButton-newChatButton-50"
+  disabled={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onContextMenu={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  tabIndex="-1"
+  type="button"
+>
+  <span
+    className="MuiButton-label-53"
+  >
+    <svg
+      aria-hidden="true"
+      className="MuiSvgIcon-root-81"
+      focusable="false"
+      role="presentation"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+      />
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+    </svg>
+  </span>
+</button>
+`;

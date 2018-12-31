@@ -1,0 +1,219 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ChatMessage /> renders message from active user 1`] = `
+<div
+  className="ChatMessage-messageWrapper-75 ChatMessage-messageWrapperFromMe-72"
+>
+  <div
+    className="MuiPaper-root-78 MuiPaper-elevation2-82 MuiPaper-rounded-79 ChatMessage-message-73 ChatMessage-messageFromMe-74"
+  >
+    <span
+      className="MuiTypography-root-105 MuiTypography-caption-115"
+      style={
+        Object {
+          "color": "#f44336",
+        }
+      }
+    >
+      me
+    </span>
+    <p
+      className="MuiTypography-root-105 MuiTypography-body1-114"
+    >
+      Hello, World!
+    </p>
+    <span
+      className="MuiTypography-root-105 MuiTypography-caption-115"
+    >
+      2 days ago
+    </span>
+  </div>
+  <div
+    className="MuiAvatar-root-140 MuiAvatar-colorDefault-141"
+    style={
+      Object {
+        "backgroundColor": "#f44336",
+      }
+    }
+  >
+    M
+  </div>
+</div>
+`;
+
+exports[`<ChatMessage /> renders message from other users 1`] = `
+<div
+  className="ChatMessage-messageWrapper-75"
+>
+  <div
+    className="MuiAvatar-root-140 MuiAvatar-colorDefault-141"
+    style={
+      Object {
+        "backgroundColor": "#f44336",
+      }
+    }
+  >
+    S
+  </div>
+  <div
+    className="MuiPaper-root-78 MuiPaper-elevation2-82 MuiPaper-rounded-79 ChatMessage-message-73"
+  >
+    <span
+      className="MuiTypography-root-105 MuiTypography-caption-115"
+      style={
+        Object {
+          "color": "#f44336",
+        }
+      }
+    >
+      someone
+    </span>
+    <p
+      className="MuiTypography-root-105 MuiTypography-body1-114"
+    >
+      Hello, World!
+    </p>
+    <span
+      className="MuiTypography-root-105 MuiTypography-caption-115"
+    >
+      2 days ago
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<ChatMessage /> renders name in status message correctly 1`] = `
+<div
+  className="ChatMessage-messageWrapper-75"
+>
+  <p
+    className="MuiTypography-root-105 MuiTypography-body1-114 ChatMessage-statusMessage-76"
+  >
+    <span
+      className="MuiTypography-root-105 MuiTypography-caption-115 ChatMessage-statusMessageUser-77"
+      style={
+        Object {
+          "color": "#f44336",
+        }
+      }
+    >
+      Name Surname
+    </span>
+    Hello, World!
+    <span
+      className="MuiTypography-root-105 MuiTypography-caption-115"
+    >
+      2 days ago
+    </span>
+  </p>
+</div>
+`;
+
+exports[`<ChatMessage /> renders name of active user correctly 1`] = `
+<div
+  className="ChatMessage-messageWrapper-75 ChatMessage-messageWrapperFromMe-72"
+>
+  <div
+    className="MuiPaper-root-78 MuiPaper-elevation2-82 MuiPaper-rounded-79 ChatMessage-message-73 ChatMessage-messageFromMe-74"
+  >
+    <span
+      className="MuiTypography-root-105 MuiTypography-caption-115"
+      style={
+        Object {
+          "color": "#f44336",
+        }
+      }
+    >
+      Name Surname
+    </span>
+    <p
+      className="MuiTypography-root-105 MuiTypography-body1-114"
+    >
+      Hello, World!
+    </p>
+    <span
+      className="MuiTypography-root-105 MuiTypography-caption-115"
+    >
+      2 days ago
+    </span>
+  </div>
+  <div
+    className="MuiAvatar-root-140 MuiAvatar-colorDefault-141"
+    style={
+      Object {
+        "backgroundColor": "#f44336",
+      }
+    }
+  >
+    NS
+  </div>
+</div>
+`;
+
+exports[`<ChatMessage /> renders name of other users correctly 1`] = `
+<div
+  className="ChatMessage-messageWrapper-75"
+>
+  <div
+    className="MuiAvatar-root-140 MuiAvatar-colorDefault-141"
+    style={
+      Object {
+        "backgroundColor": "#f44336",
+      }
+    }
+  >
+    NS
+  </div>
+  <div
+    className="MuiPaper-root-78 MuiPaper-elevation2-82 MuiPaper-rounded-79 ChatMessage-message-73"
+  >
+    <span
+      className="MuiTypography-root-105 MuiTypography-caption-115"
+      style={
+        Object {
+          "color": "#f44336",
+        }
+      }
+    >
+      Name Surname
+    </span>
+    <p
+      className="MuiTypography-root-105 MuiTypography-body1-114"
+    >
+      Hello, World!
+    </p>
+    <span
+      className="MuiTypography-root-105 MuiTypography-caption-115"
+    >
+      2 days ago
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<ChatMessage /> renders status message 1`] = `
+<div
+  className="ChatMessage-messageWrapper-75"
+>
+  <p
+    className="MuiTypography-root-105 MuiTypography-body1-114 ChatMessage-statusMessage-76"
+  >
+    <span
+      className="MuiTypography-root-105 MuiTypography-caption-115 ChatMessage-statusMessageUser-77"
+      style={
+        Object {
+          "color": "#f44336",
+        }
+      }
+    >
+      me
+    </span>
+    Hello, World!
+    <span
+      className="MuiTypography-root-105 MuiTypography-caption-115"
+    >
+      2 days ago
+    </span>
+  </p>
+</div>
+`;
