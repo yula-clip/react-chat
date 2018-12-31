@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
-import auth from './auth';
-import chats from './chats';
-import messages from './messages';
-import services from './services';
+import { combineReducers } from "redux";
+import auth from "./auth";
+import chats from "./chats";
+import messages from "./messages";
+import services from "./services";
 
 export default combineReducers({
   auth,
@@ -11,8 +11,8 @@ export default combineReducers({
   services
 });
 
-export const getActiveUser = (state) => state.auth.user;
-export const getUserId = (user) => user._id;
+export const getActiveUser = state => state.auth.user;
+export const getUserId = user => user._id;
 
 export const isCreator = (state, chat) => {
   try {
@@ -34,4 +34,4 @@ export const isMember = (state, chat) => {
 
 export const isChatMember = (state, chat) => {
   return isCreator(state, chat) || isMember(state, chat);
-}
+};

@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ChatMessageList /> renders messages 1`] = `
+<div
+  className="ChatMessageList-messagesWrapper-65"
+>
+  <div
+    className="ChatMessage-messageWrapper-132 ChatMessage-messageWrapperFromMe-129"
+  >
+    <div
+      className="MuiPaper-root-67 MuiPaper-elevation2-71 MuiPaper-rounded-68 ChatMessage-message-130 ChatMessage-messageFromMe-131"
+    >
+      <span
+        className="MuiTypography-root-94 MuiTypography-caption-104"
+        style={
+          Object {
+            "color": "#f44336",
+          }
+        }
+      >
+        me
+      </span>
+      <p
+        className="MuiTypography-root-94 MuiTypography-body1-103"
+      >
+        Hello, World!
+      </p>
+      <span
+        className="MuiTypography-root-94 MuiTypography-caption-104"
+      >
+        2 days ago
+      </span>
+    </div>
+    <div
+      className="MuiAvatar-root-135 MuiAvatar-colorDefault-136"
+      style={
+        Object {
+          "backgroundColor": "#f44336",
+        }
+      }
+    >
+      M
+    </div>
+  </div>
+  <div
+    className="ChatMessage-messageWrapper-132"
+  >
+    <div
+      className="MuiAvatar-root-135 MuiAvatar-colorDefault-136"
+      style={
+        Object {
+          "backgroundColor": "#f44336",
+        }
+      }
+    >
+      S
+    </div>
+    <div
+      className="MuiPaper-root-67 MuiPaper-elevation2-71 MuiPaper-rounded-68 ChatMessage-message-130"
+    >
+      <span
+        className="MuiTypography-root-94 MuiTypography-caption-104"
+        style={
+          Object {
+            "color": "#f44336",
+          }
+        }
+      >
+        someone
+      </span>
+      <p
+        className="MuiTypography-root-94 MuiTypography-body1-103"
+      >
+        Hello, React!
+      </p>
+      <span
+        className="MuiTypography-root-94 MuiTypography-caption-104"
+      >
+        2 days ago
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<ChatMessageList /> renders paper 1`] = `
+<div
+  className="MuiPaper-root-67 MuiPaper-elevation2-71 MuiPaper-rounded-68 ChatMessageList-paper-66"
+>
+  <h4
+    className="MuiTypography-root-94 MuiTypography-h4-109 MuiTypography-gutterBottom-121"
+  >
+    Start messaging…
+  </h4>
+  <p
+    className="MuiTypography-root-94 MuiTypography-body1-103 MuiTypography-gutterBottom-121"
+  >
+    Use 
+    <strong>
+      Global
+    </strong>
+     to explore communities around here.
+  </p>
+  <p
+    className="MuiTypography-root-94 MuiTypography-body1-103 MuiTypography-gutterBottom-121"
+  >
+    Use 
+    <strong>
+      Recents
+    </strong>
+     to see your recent conversations.
+  </p>
+</div>
+`;
+
+exports[`<ChatMessageList /> renders without messages 1`] = `
+<h4
+  className="MuiTypography-root-94 MuiTypography-h4-109"
+>
+  There is no messages yet...
+</h4>
+`;

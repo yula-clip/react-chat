@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Sidebar /> renders correctly 1`] = `
+<div
+  className="MuiDrawer-root-112 MuiDrawer-docked-113"
+>
+  <div
+    className="MuiPaper-root-124 MuiPaper-elevation0-126 MuiDrawer-paper-114 Sidebar-drawerPaper-108 MuiDrawer-paperAnchorLeft-115 MuiDrawer-paperAnchorDockedLeft-119"
+  >
+    <div
+      className="Sidebar-drawerHeader-109"
+    >
+      <div
+        className="MuiFormControl-root-151 MuiFormControl-marginNormal-152 MuiFormControl-fullWidth-154"
+      >
+        <div
+          className="MuiInputBase-root-168 MuiInput-root-155 MuiInput-underline-159 MuiInputBase-fullWidth-177 MuiInput-fullWidth-162 MuiInputBase-formControl-169 MuiInput-formControl-156"
+          onClick={[Function]}
+        >
+          <input
+            aria-invalid={false}
+            className="MuiInputBase-input-178 MuiInput-input-163 MuiInputBase-inputType-181 MuiInput-inputType-166 MuiInputBase-inputTypeSearch-182 MuiInput-inputTypeSearch-167"
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="Search chats..."
+            required={false}
+            type="search"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <hr
+      className="MuiDivider-root-185"
+    />
+    ChatList
+    AddChatButton
+    <div
+      className="MuiBottomNavigation-root-190"
+    >
+      <button
+        className="MuiButtonBase-root-196 MuiBottomNavigationAction-root-191 MuiBottomNavigationAction-selected-192"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiBottomNavigationAction-wrapper-194"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root-199"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"
+            />
+          </svg>
+          <span
+            className="MuiBottomNavigationAction-label-195 MuiBottomNavigationAction-selected-192"
+          >
+            My Chats
+          </span>
+        </span>
+        <span
+          className="MuiTouchRipple-root-208"
+        />
+      </button>
+      <button
+        className="MuiButtonBase-root-196 MuiBottomNavigationAction-root-191"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiBottomNavigationAction-wrapper-194"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root-199"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 10.9c-.61 0-1.1.49-1.1 1.1s.49 1.1 1.1 1.1c.61 0 1.1-.49 1.1-1.1s-.49-1.1-1.1-1.1zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm2.19 12.19L6 18l3.81-8.19L18 6l-3.81 8.19z"
+            />
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+          </svg>
+          <span
+            className="MuiBottomNavigationAction-label-195"
+          >
+            Explore
+          </span>
+        </span>
+        <span
+          className="MuiTouchRipple-root-208"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;

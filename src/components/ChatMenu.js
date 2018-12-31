@@ -1,15 +1,15 @@
-import React from 'react';
-import MoreIcon from '@material-ui/icons/MoreVert';
-import IconButton from '@material-ui/core/IconButton';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import React from "react";
+import MoreIcon from "@material-ui/icons/MoreVert";
+import IconButton from "@material-ui/core/IconButton";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 
 class ChatMenu extends React.Component {
   state = {
-    anchorEl: null,
-  }
+    anchorEl: null
+  };
 
-  handleClick = (event) => {
+  handleClick = event => {
     this.setState({ anchorEl: event.currentTarget });
   };
 
@@ -20,12 +20,12 @@ class ChatMenu extends React.Component {
   handleLeaveClick = () => {
     this.handleClose();
     this.props.onLeaveClick();
-  }
+  };
 
   handleDeleteClick = () => {
     this.handleClose();
     this.props.onDeleteClick();
-  }
+  };
 
   render() {
     const { activeUser, disabled } = this.props;
@@ -39,7 +39,7 @@ class ChatMenu extends React.Component {
       <React.Fragment>
         <IconButton
           color="inherit"
-          aria-owns={anchorEl ? 'simple-menu' : null}
+          aria-owns={anchorEl ? "simple-menu" : null}
           aria-haspopup="true"
           disabled={disabled}
           onClick={this.handleClick}
@@ -52,8 +52,12 @@ class ChatMenu extends React.Component {
           open={Boolean(anchorEl)}
           onClose={this.handleClose}
         >
-          {activeUser.isMember && <MenuItem onClick={this.handleLeaveClick}>Leave</MenuItem>}
-          {activeUser.isCreator && <MenuItem onClick={this.handleDeleteClick}>Delete</MenuItem>}
+          {activeUser.isMember && (
+            <MenuItem onClick={this.handleLeaveClick}>Leave</MenuItem>
+          )}
+          {activeUser.isCreator && (
+            <MenuItem onClick={this.handleDeleteClick}>Delete</MenuItem>
+          )}
         </Menu>
       </React.Fragment>
     );
