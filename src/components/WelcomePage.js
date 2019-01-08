@@ -72,7 +72,7 @@ class WelcomePage extends React.Component {
                 <Tabs
                   value={activeTab}
                   onChange={this.handleTabChage}
-                  fullWidth
+                  variant="fullWidth"
                 >
                   <Tab label="Login" />
                   <Tab label="Sign Up" />
